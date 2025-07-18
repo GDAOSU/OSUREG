@@ -9,7 +9,7 @@
 1. Clone the repo:
 
     ```console
-    git clone https://github.com/Ggs1mida/OSUREG.git
+    git clone https://github.com/GDAOSU/OSUREG.git
     ```
 
 2. Create and activate a Conda environment containing the required dependencies. From inside the `OSUREG` directory:
@@ -36,4 +36,7 @@ Mode
 "DSM": support 2.5D DSM registration, use the proposed iterative closest algorithm, designed for DSM format for lower computation and memory consumption.    
 "G2F": support ground to building footprint (kml format) registration  
 "G2A": support ground to air registration
+
+![alt text](example.png "Title")
+![alt text](example1.png "Title")
 
