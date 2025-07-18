@@ -1,0 +1,102 @@
+[project]
+name = "osureg"
+requires-python = ">=3.7"
+description = "A package for co-registering geospatial data"
+readme = "readme.md"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Ningli Xu", email = "xu.3961@buckeyemail.osu.edu"},
+  { name = "Rongjun Qin", email="qin.324@osu.edu" }
+]
+maintainers = [
+    { name = "Ningli Xu", email = "xu.3961@buckeyemail.osu.edu"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Information Technology",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Topic :: Scientific/Engineering :: GIS",
+  "Topic :: Scientific/Engineering :: Image Processing"
+]
+dependencies = [
+  "typing-extensions"
+]
+dynamic = ["version"]
+
+
+[tool.setuptools]
+package-dir = {"" =  "src"}
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = "osureg.__version__" }
+
+[build-system]
+requires = ["setuptools>=64.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+osureg = "osureg.main:main"
+vcd = "vcd.main:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.py(i|t)?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv*
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.mypy]
+python_version = 3.7
+warn_return_any = true
+disallow_untyped_defs = true
+disallow_untyped_calls = true
+disallow_incomplete_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+  "cv2",
+  "enlighten",
+  "matplotlib",
+  "matplotlib.pyplot",
+  "matplotlib.tri",
+  "pandas",
+  "pdal",
+  "pyproj",
+  "pyproj.aoi",
+  "pyproj.crs",
+  "pyproj.database",
+  "pyproj.enums",
+  "pyproj.transformer",
+  "rasterio",
+  "rasterio.crs",
+  "rasterio.enums",
+  "rasterio.fill",
+  "rich",
+  "rich.console",
+  "rich.logging",
+  "rich.progress",
+  "scipy",
+  "scipy.sparse",
+  "scipy.spatial",
+  "shapefile",
+  "skimage",
+  "skimage.measure",
+  "trimesh",
+]
+ignore_missing_imports = true
